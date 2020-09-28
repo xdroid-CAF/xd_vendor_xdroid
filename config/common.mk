@@ -12,75 +12,30 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include vendor/aosp/config/version.mk
+include vendor/extended/config/version.mk
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/aosp/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/aosp/prebuilt/common/bin/50-base.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-base.sh
+    vendor/extended/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/extended/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/extended/prebuilt/common/bin/50-base.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-base.sh
 
 ifneq ($(AB_OTA_PARTITIONS),)
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
-    vendor/aosp/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
-    vendor/aosp/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
+    vendor/extended/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
+    vendor/extended/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
+    vendor/extended/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
 endif
 
-# Bootanimation
-$(call inherit-product, vendor/aosp/config/bootanimation.mk)
 
 # Common Overlay
 DEVICE_PACKAGE_OVERLAYS += \
-    vendor/aosp/overlay/common
+    vendor/extended/overlay/common
 
-# Hidden API whitelist
-PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/etc/permissions/aex-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/aex-hiddenapi-package-whitelist.xml
-
-# priv-app permissions
-PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/etc/permissions/privapp-permissions-aex.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-aex.xml \
-    vendor/aosp/prebuilt/common/etc/permissions/privapp-permissions-aex-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-aex-product.xml
-
-PRODUCT_PACKAGES += \
-    privapp-permissions-wellbeing.xml
 
 # Enforce privapp-permissions whitelist
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.control_privapp_permissions=log
-
-# Power whitelist
-PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/etc/permissions/aex-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/aex-power-whitelist.xml
-
-PRODUCT_PACKAGES += \
-    Terminal \
-    LatinIME \
-    LiveWallpapers \
-    LiveWallpapersPicker \
-    Stk \
-    AEXPapers \
-    WallpaperPickerGoogle \
-    Recorder
-
-# Cutout control overlays
-PRODUCT_PACKAGES += \
-    HideCutout \
-    StatusBarStock
-
-# Dex preopt
-PRODUCT_DEXPREOPT_SPEED_APPS += \
-    SystemUI \
-    Launcher3QuickStep
-
-# Extra packages
-PRODUCT_PACKAGES += \
-    libjni_latinimegoogle
-
-# Pixel sysconfig
-PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/etc/sysconfig/pixel.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/pixel.xml
 
 # Extra tools
 PRODUCT_PACKAGES += \
@@ -110,49 +65,47 @@ PRODUCT_PACKAGES += \
     rsync \
     zip
 
-# Exchange support
-PRODUCT_PACKAGES += \
-    Exchange2
-
-# Backup Services whitelist
-PRODUCT_COPY_FILES += \
-    vendor/aosp/config/permissions/backup.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/backup.xml
-
-# init.d support
-PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/etc/init.d/00banner:$(TARGET_COPY_OUT_SYSTEM)/etc/init.d/00banner
-
-# AEX-specific init files
-$(foreach f,$(wildcard vendor/aosp/prebuilt/common/etc/init/*.rc),\
-    $(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_SYSTEM)/etc/init/$(notdir $f)))
-
-# Fix Dialer
-PRODUCT_COPY_FILES +=  \
-    vendor/aosp/prebuilt/common/etc/sysconfig/dialer_experience.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/dialer_experience.xml
-
-# Enable SIP+VoIP on all targets
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.sip.voip.xml
-
-# Enable wireless Xbox 360 controller support
-PRODUCT_COPY_FILES += \
-    frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/Vendor_045e_Product_0719.kl
-
-# Media
-PRODUCT_GENERIC_PROPERTIES += \
-    media.recorder.show_manufacturer_and_model=true
-
-# Needed by some RILs and for some gApps packages
-PRODUCT_PACKAGES += \
-    librsjni \
-    libprotobuf-cpp-full
-
-# Charger images
-PRODUCT_PACKAGES += \
-    charger_res_images
-
-# ThemeOverlays
-include packages/overlays/Themes/themes.mk
-
 # Recommend using the non debug dexpreopter
-USE_DEX2OAT_DEBUG := false
+USE_DEX2OAT_DEBUG ?= false
+
+#CafAditions
+PRODUCT_PACKAGES := \
+    AccountAndSyncSettings \
+    DeskClock \
+    AlarmProvider \
+    Calculator \
+    Calendar \
+    Camera \
+    CellBroadcastReceiver \
+    CertInstaller \
+    DrmProvider \
+    Email \
+    Gallery2 \
+    LatinIME \
+    Music \
+    netutils-wrapper-1.0 \
+    Phone \
+    Provision \
+    Protips \
+    QuickSearchBox \
+    Settings \
+    Sync \
+    SystemUI \
+    Updater \
+    CalendarProvider \
+    SyncProvider \
+    SoundRecorder \
+    IM \
+    VoiceDialer \
+    SnapdragonGallery \
+    SnapdragonMusic \
+    VideoEditor \
+    SnapdragonLauncher
+
+# framework detect libs
+PRODUCT_PACKAGES += libvndfwk_detect_jni.qti
+PRODUCT_PACKAGES += libqti_vndfwk_detect
+PRODUCT_PACKAGES += libvndfwk_detect_jni.qti.vendor
+PRODUCT_PACKAGES += libqti_vndfwk_detect.vendor
+
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)

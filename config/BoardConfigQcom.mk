@@ -1,5 +1,5 @@
 # Bring in Qualcomm helper macros
-include vendor/aosp/build/core/qcom_utils.mk
+include vendor/extended/build/core/qcom_utils.mk
 
 # Platform names
 MSMNILE := msmnile #SM8150
