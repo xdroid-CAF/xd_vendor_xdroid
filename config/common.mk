@@ -111,4 +111,13 @@ PRODUCT_PACKAGES += libqti_vndfwk_detect
 PRODUCT_PACKAGES += libvndfwk_detect_jni.qti.vendor
 PRODUCT_PACKAGES += libqti_vndfwk_detect.vendor
 
+#Name Spaces
+PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/commonsys/packages/apps/Bluetooth
+PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/commonsys/system/bt/conf
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
+-include vendor/qcom/defs/board-defs/system/*.mk
+-include vendor/qcom/defs/board-defs/vendor/*.mk
+$(call inherit-product-if-exists, vendor/qcom/defs/product-defs/system/*.mk)
+$(call inherit-product-if-exists, vendor/qcom/defs/product-defs/vendor/*.mk)
