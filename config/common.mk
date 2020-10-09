@@ -68,7 +68,7 @@ PRODUCT_PACKAGES += \
 # Recommend using the non debug dexpreopter
 USE_DEX2OAT_DEBUG ?= false
 
-#CafAditions
+#Caf-Aditions
 PRODUCT_PACKAGES := \
     AccountAndSyncSettings \
     DeskClock \
@@ -87,7 +87,6 @@ PRODUCT_PACKAGES := \
     Phone \
     Provision \
     Protips \
-    QuickSearchBox \
     Settings \
     Sync \
     SystemUI \
@@ -101,6 +100,10 @@ PRODUCT_PACKAGES := \
     SnapdragonMusic \
     VideoEditor \
     SnapdragonLauncher
+
+# CAF Common Flags :
+PRODUCT_VENDOR_MOVE_ENABLED := true
+DISABLE_EAP_PROXY := true
 
 # framework detect libs
 PRODUCT_PACKAGES += libvndfwk_detect_jni.qti
