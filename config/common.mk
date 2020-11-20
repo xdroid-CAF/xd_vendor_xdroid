@@ -115,5 +115,8 @@ include vendor/xdroid/config/xdroid_audio.mk
 # Include xdroidUI
 include vendor/xdroidui/config.mk
 
+# Include xdroid packages
+include vendor/xdroid/config/packages.mk
+
 # Include Version
 include vendor/xdroid/config/version.mk
