@@ -106,6 +106,19 @@ PRODUCT_COPY_FILES += \
 # Include Lineage LatinIME dictionaries
 PRODUCT_PACKAGE_OVERLAYS += vendor/xdroid/overlay/dictionaries
 
+ifneq ($(HOST_OS),linux)
+ifneq ($(sdclang_already_warned),true)
+$(warning **********************************************)
+$(warning * SDCLANG is not supported on non-linux hosts.)
+$(warning **********************************************)
+sdclang_already_warned := true
+endif
+else
+
+# include definitions for SDCLANG
+include vendor/xdroid/sdclang/sdclang.mk
+endif
+
 # Include AOSP audio files
 include vendor/xdroid/config/aosp_audio.mk
 
