@@ -54,10 +54,15 @@ SOONG_CONFIG_xdroidQcomVars += \
     uses_qcom_bsp_legacy \
     uses_qti_camera_device
 
-# Only create soong_namespace var if dealing with UM platforms to avoid breaking build for all other platforms
+# Only create display_headers_namespace var if dealing with UM platforms to avoid breaking build for all other platforms
 ifneq ($(filter $(UM_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
+<<<<<<< HEAD
 SOONG_CONFIG_xdroidQcomVars += \
     qcom_soong_namespace
+=======
+SOONG_CONFIG_conquerQcomVars += \
+    qcom_display_headers_namespace
+>>>>>>> f67b6f69... soong: qcom: Commonize display_intf_headers for QSSI supported platforms
 endif
 
 # Soong bool variables
@@ -89,8 +94,10 @@ SOONG_CONFIG_xdroidGlobalVars_target_ld_shim_libs := $(subst $(space),:,$(TARGET
 SOONG_CONFIG_xdroidGlobalVars_target_process_sdk_version_override := $(TARGET_PROCESS_SDK_VERSION_OVERRIDE)
 SOONG_CONFIG_xdroidGlobalVars_target_surfaceflinger_fod_lib := $(TARGET_SURFACEFLINGER_FOD_LIB)
 SOONG_CONFIG_xdroidGlobalVars_uses_camera_parameter_lib := $(TARGET_SPECIFIC_CAMERA_PARAMETER_LIBRARY)
-ifneq ($(filter $(UM_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
-SOONG_CONFIG_xdroidQcomVars_qcom_soong_namespace := $(QCOM_SOONG_NAMESPACE)
+ifneq ($(filter $(QSSI_SUPPORTED_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
+SOONG_CONFIG_xdroidQcomVars_qcom_display_headers_namespace := vendor/qcom/opensource/commonsys-intf/display
+else
+SOONG_CONFIG_xdroidQcomVars_qcom_display_headers_namespace := $(QCOM_SOONG_NAMESPACE)/display
 endif
 
 ifneq ($(TARGET_USE_QTI_BT_STACK),true)
