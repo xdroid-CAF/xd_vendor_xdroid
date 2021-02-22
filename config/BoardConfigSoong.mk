@@ -46,6 +46,7 @@ SOONG_CONFIG_xdroidNvidiaVars += \
 
 SOONG_CONFIG_NAMESPACES += xdroidQcomVars
 SOONG_CONFIG_xdroidQcomVars += \
+    legacy_hw_disk_encryption \
     should_wait_for_qsee \
     supports_extended_compress_format \
     supports_hw_fde \
@@ -56,13 +57,8 @@ SOONG_CONFIG_xdroidQcomVars += \
 
 # Only create display_headers_namespace var if dealing with UM platforms to avoid breaking build for all other platforms
 ifneq ($(filter $(UM_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
-<<<<<<< HEAD
 SOONG_CONFIG_xdroidQcomVars += \
-    qcom_soong_namespace
-=======
-SOONG_CONFIG_conquerQcomVars += \
     qcom_display_headers_namespace
->>>>>>> f67b6f69... soong: qcom: Commonize display_intf_headers for QSSI supported platforms
 endif
 
 # Soong bool variables
@@ -71,6 +67,7 @@ SOONG_CONFIG_xdroidGlobalVars_has_legacy_camera_hal1 := $(TARGET_HAS_LEGACY_CAME
 SOONG_CONFIG_xdroidGlobalVars_ignores_ftp_pptp_conntrack_failure := $(TARGET_IGNORES_FTP_PPTP_CONNTRACK_FAILURE)
 SOONG_CONFIG_xdroidGlobalVars_needs_netd_direct_connect_rule := $(TARGET_NEEDS_NETD_DIRECT_CONNECT_RULE)
 SOONG_CONFIG_xdroidNvidiaVars_uses_nv_enhancements := $(NV_ANDROID_FRAMEWORK_ENHANCEMENTS)
+SOONG_CONFIG_xdroidQcomVars_legacy_hw_disk_encryption := $(TARGET_LEGACY_HW_DISK_ENCRYPTION)
 SOONG_CONFIG_xdroidQcomVars_should_wait_for_qsee := $(TARGET_KEYMASTER_WAIT_FOR_QSEE)
 SOONG_CONFIG_xdroidQcomVars_supports_extended_compress_format := $(AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT)
 SOONG_CONFIG_xdroidQcomVars_supports_hw_fde := $(TARGET_HW_DISK_ENCRYPTION)
