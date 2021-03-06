@@ -2,6 +2,7 @@
 # Xdroid Audio Files
 #
 
+LOCAL_PATH := vendor/xdroid
 ALARM_PATH := vendor/xdroid/prebuilt/common/media/audio/alarms
 NOTIFICATION_PATH := vendor/xdroid/prebuilt/common/media/audio/notifications
 RINGTONE_PATH := vendor/xdroid/prebuilt/common/media/audio/ringtones
@@ -31,3 +32,13 @@ PRODUCT_COPY_FILES += \
     $(RINGTONE_PATH)/Rockin.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ringtones/Rockin.ogg \
     $(RINGTONE_PATH)/Sheep.mp3:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ringtones/Sheep.mp3 \
     $(RINGTONE_PATH)/Yukaay.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ringtones/Yukaay.ogg
+
+# Other
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/common/media/audio/alarms/Argon-old.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/alarms/Argon-old.ogg \
+    $(LOCAL_PATH)/prebuilt/common/media/audio/alarms/Carbon-old.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/alarms/Carbon-old.ogg \
+    $(LOCAL_PATH)/prebuilt/common/media/audio/alarms/Krypton-old.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/alarms/Krypton-old.ogg \
+    $(LOCAL_PATH)/prebuilt/common/media/audio/alarms/Neon-old.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/alarms/Neon-old.ogg \
+    $(LOCAL_PATH)/prebuilt/common/media/audio/alarms/Osmium-old.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/alarms/Osmium-old.ogg \
+    $(LOCAL_PATH)/prebuilt/common/media/audio/alarms/Oxygen-old.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/alarms/Oxygen-old.ogg \
+    $(LOCAL_PATH)/prebuilt/common/media/audio/alarms/Platinum-old.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/alarms/Platinum-old.ogg
