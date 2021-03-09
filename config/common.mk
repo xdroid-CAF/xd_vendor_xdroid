@@ -81,7 +81,8 @@ PRODUCT_DEXPREOPT_QUICKEN_APPS += \
 
 # xdroid Gapps Permissions
 PRODUCT_COPY_FILES += \
-    vendor/xdroid/config/permissions/xd.xdroid_gapps.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/xd.xdroid_gapps.xml
+    vendor/xdroid/config/permissions/xd.xdroid_gapps.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/xd.xdroid_gapps.xml \
+	vendor/xdroid/config/permissions/xd.xdroid_gapps.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/xd.xdroid_gapps.xml
 
 # Do not preoptimize prebuilts when building GApps
 DONT_DEXPREOPT_PREBUILTS := true
