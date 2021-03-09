@@ -79,6 +79,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_DEXPREOPT_QUICKEN_APPS += \
     Dialer
 
+# xdroid Gapps Permissions
+PRODUCT_COPY_FILES += \
+    vendor/xdroid/config/permissions/xd.xdroid_gapps.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/xd.xdroid_gapps.xml
+
 # Do not preoptimize prebuilts when building GApps
 DONT_DEXPREOPT_PREBUILTS := true
 
@@ -117,6 +121,9 @@ include vendor/xdroidui/config.mk
 
 # Include xdroid packages
 include vendor/xdroid/config/packages.mk
+
+# Include xdroid gapps
+include vendor/google/gms/config.mk
 
 # Include common props
 include vendor/xdroid/config/props.mk
