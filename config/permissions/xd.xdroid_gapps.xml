@@ -15,7 +15,31 @@
 -->
 
 <permissions>
-	
+
+	<privapp-permissions package="com.google.android.apps.restore">
+        <permission name="android.permission.SUBSTITUTE_NOTIFICATION_APP_NAME"/>
+        <permission name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+        <permission name="android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS"/>
+        <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
+        <permission name="android.permission.GET_ACCOUNTS_PRIVILEGED"/>
+        <permission name="android.permission.BACKUP"/>
+    </privapp-permissions>
+
+    <privapp-permissions package="com.google.android.apps.pixelmigrate">
+        <permission name="android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS"/>
+        <permission name="android.permission.MANAGE_USERS"/>
+        <permission name="android.permission.MANAGE_USB"/>
+        <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
+        <permission name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+        <permission name="android.permission.BACKUP"/>
+        <permission name="android.permission.SUBSTITUTE_NOTIFICATION_APP_NAME"/>
+    </privapp-permissions> 
+	     
+	<privapp-permissions package="com.google.android.backuptransport">
+        <permission name="android.permission.UPDATE_DEVICE_STATS"/>
+        <permission name="android.permission.BACKUP"/>
+    </privapp-permissions>
+    
 	<privapp-permissions package="com.google.android.captiveportallogin">
         <permission name="android.permission.CONNECTIVITY_USE_RESTRICTED_NETWORKS"/>
     </privapp-permissions>
