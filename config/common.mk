@@ -112,9 +112,8 @@ endif
 ifeq ($(WITH_GAPPS), true)
 
 # Inherit GMS, Pixel Features, and Modules.
-$(call inherit-product, vendor/google/gms/config.mk)
-# Pixel Features
-$(call inherit-product, vendor/google/pixel/config.mk)
+$(call inherit-product, vendor/gapps/config.mk)
+$(call inherit-product,vendor/extended/config/gapps.mk)
 # Don't preoptimize prebuilts when building GMS.
 DONT_DEXPREOPT_PREBUILTS := true
 
