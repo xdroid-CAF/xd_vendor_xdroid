@@ -125,6 +125,7 @@ include vendor/xdroid/config/packages.mk
 
 # Include xdroid gapps
 include vendor/google/gms/config.mk
+include vendor/google/pixel/config.mk
 
 # Include common props
 include vendor/xdroid/config/props.mk
