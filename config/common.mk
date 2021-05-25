@@ -84,9 +84,14 @@ PRODUCT_PACKAGES += \
 # Recommend using the non debug dexpreopter
 USE_DEX2OAT_DEBUG ?= false
 
+# AOSP Packages
+PRODUCT_PACKAGES += \
+    ThemePicker
+
 #Caf-Aditions
 PRODUCT_PACKAGES := \
     AccountAndSyncSettings \
+    DU-Themes \
     DeskClock \
     AlarmProvider \
     Calculator \

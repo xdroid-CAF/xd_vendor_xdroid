@@ -19,3 +19,6 @@ $(call inherit-product, vendor/extended/config/telephony.mk)
 
 $(call inherit-product, vendor/extended/config/cafex_props.mk)
 
+# Overlays
+$(call inherit-product, vendor/overlay/overlays.mk)
+
