@@ -96,8 +96,8 @@ PRODUCT_PACKAGES += \
 #Caf-Aditions
 PRODUCT_PACKAGES := \
     AccountAndSyncSettings \
-    DU-Themes \
     DeskClock \
+    DU-Themes \
     AlarmProvider \
     Calculator \
     Calendar \

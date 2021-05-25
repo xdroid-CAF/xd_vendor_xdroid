@@ -1,0 +1,16 @@
+android_library {
+
+    name: "VendorSupport-Libs",
+
+    static_libs: [
+        "androidx.core_core",
+        "androidx.preference_preference",
+        "androidx.appcompat_appcompat",
+        "androidx.recyclerview_recyclerview",
+    ],
+
+    resource_dirs: ["res"],
+    srcs: ["src/**/*.java"],
+    min_sdk_version: "21",
+
+}
