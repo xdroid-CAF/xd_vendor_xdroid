@@ -53,6 +53,11 @@ PRODUCT_PACKAGES += \
     HideCutout \
     StatusBarStock
 
+# StichImage
+PRODUCT_PACKAGES += \
+    StitchImage \
+    StitchImageService
+
 # Extra tools
 PRODUCT_PACKAGES += \
     e2fsck \
