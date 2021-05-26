@@ -58,6 +58,10 @@ PRODUCT_PACKAGES += \
     StitchImage \
     StitchImageService
 
+#SimpleDeviceConfig
+PRODUCT_PACKAGES += \
+    SimpleDeviceConfig
+
 # Extra tools
 PRODUCT_PACKAGES += \
     e2fsck \
