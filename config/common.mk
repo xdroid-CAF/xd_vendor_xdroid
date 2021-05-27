@@ -28,10 +28,6 @@ PRODUCT_COPY_FILES += \
 endif
 
 
-# Common Overlay
-DEVICE_PACKAGE_OVERLAYS += \
-    vendor/extended/overlay/common
-
 # Face Unlock
 TARGET_FACE_UNLOCK_SUPPORTED ?= true
 ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
@@ -105,7 +101,6 @@ PRODUCT_PACKAGES := \
     AlarmProvider \
     Calculator \
     Calendar \
-    Camera \
     CellBroadcastReceiver \
     CertInstaller \
     DrmProvider \
