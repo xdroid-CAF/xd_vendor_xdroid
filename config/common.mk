@@ -39,6 +39,17 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml
 endif
 
+# GMS
+ifneq ($(TARGET_DISABLES_GMS), true)
+
+# Inherit GMS, Pixel Features, and Modules.
+$(call inherit-product, vendor/google/gms/config.mk)
+# Pixel Features
+$(call inherit-product, vendor/google/pixel/config.mk)
+# Don't preoptimize prebuilts when building GMS.
+DONT_DEXPREOPT_PREBUILTS := true
+
+endif #TARGET_DISABLES_GMS
 
 # Enforce privapp-permissions whitelist
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
