@@ -27,34 +27,6 @@ PRODUCT_COPY_FILES += \
     vendor/extended/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
 endif
 
-
-# Face Unlock
-TARGET_FACE_UNLOCK_SUPPORTED ?= true
-ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
-PRODUCT_PACKAGES += \
-    FaceUnlockService
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.face_unlock_service.enabled=$(TARGET_FACE_UNLOCK_SUPPORTED)
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml
-endif
-
-# GMS
-ifneq ($(TARGET_DISABLES_GMS), true)
-
-# Inherit GMS, Pixel Features, and Modules.
-$(call inherit-product, vendor/google/gms/config.mk)
-# Pixel Features
-$(call inherit-product, vendor/google/pixel/config.mk)
-# Don't preoptimize prebuilts when building GMS.
-DONT_DEXPREOPT_PREBUILTS := true
-
-endif #TARGET_DISABLES_GMS
-
-# Enforce privapp-permissions whitelist
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.control_privapp_permissions=log
-
 # Cutout control overlays
 PRODUCT_PACKAGES += \
     HideCutout \
@@ -68,6 +40,30 @@ PRODUCT_PACKAGES += \
 #SimpleDeviceConfig
 PRODUCT_PACKAGES += \
     SimpleDeviceConfig
+
+# AOSP Packages
+PRODUCT_PACKAGES += \
+    ThemePicker
+
+
+#Caf-Aditions
+PRODUCT_PACKAGES += \
+    AccountAndSyncSettings \
+    DeskClock \
+    DU-Themes \
+    AlarmProvider \
+    Calculator \
+    Calendar \
+    CellBroadcastReceiver \
+    CertInstaller \
+    Email \
+    Gallery2 \
+    LatinIME \
+    Music \
+    netutils-wrapper-1.0 \
+    CalendarProvider \
+    SyncProvider \
+    SoundRecorder
 
 # Extra tools
 PRODUCT_PACKAGES += \
@@ -96,46 +92,42 @@ PRODUCT_PACKAGES += \
     vim \
     rsync \
     zip
+	
+
+# Face Unlock
+TARGET_FACE_UNLOCK_SUPPORTED ?= true
+ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
+PRODUCT_PACKAGES += \
+    FaceUnlockService
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.face_unlock_service.enabled=$(TARGET_FACE_UNLOCK_SUPPORTED)
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml
+endif
+
+# GMS
+ifeq ($(WITH_GAPPS), true)
+
+# Inherit GMS, Pixel Features, and Modules.
+$(call inherit-product, vendor/google/gms/config.mk)
+# Pixel Features
+$(call inherit-product, vendor/google/pixel/config.mk)
+# Don't preoptimize prebuilts when building GMS.
+DONT_DEXPREOPT_PREBUILTS := true
+
+endif
+
+-include vendor/qcom/defs/board-defs/system/*.mk
+-include vendor/qcom/defs/board-defs/vendor/*.mk
+$(call inherit-product-if-exists, vendor/qcom/defs/product-defs/system/*.mk)
+$(call inherit-product-if-exists, vendor/qcom/defs/product-defs/vendor/*.mk)
+
+# Enforce privapp-permissions whitelist
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.control_privapp_permissions=log
 
 # Recommend using the non debug dexpreopter
 USE_DEX2OAT_DEBUG ?= false
-
-# AOSP Packages
-PRODUCT_PACKAGES += \
-    ThemePicker
-
-#Caf-Aditions
-PRODUCT_PACKAGES := \
-    AccountAndSyncSettings \
-    DeskClock \
-    DU-Themes \
-    AlarmProvider \
-    Calculator \
-    Calendar \
-    CellBroadcastReceiver \
-    CertInstaller \
-    DrmProvider \
-    Email \
-    Gallery2 \
-    LatinIME \
-    Music \
-    netutils-wrapper-1.0 \
-    Phone \
-    Provision \
-    Protips \
-    Settings \
-    Sync \
-    SystemUI \
-    Updater \
-    CalendarProvider \
-    SyncProvider \
-    SoundRecorder \
-    IM \
-    VoiceDialer \
-    SnapdragonGallery \
-    SnapdragonMusic \
-    VideoEditor \
-    SnapdragonLauncher
 
 # CAF Common Flags :
 PRODUCT_VENDOR_MOVE_ENABLED := true
@@ -152,11 +144,6 @@ PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/commonsys/packages/apps/Bluet
 PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/commonsys/system/bt/conf
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
--include vendor/qcom/defs/board-defs/system/*.mk
--include vendor/qcom/defs/board-defs/vendor/*.mk
-$(call inherit-product-if-exists, vendor/qcom/defs/product-defs/system/*.mk)
-$(call inherit-product-if-exists, vendor/qcom/defs/product-defs/vendor/*.mk)
 
 # Qualcomm variables
 SOONG_CONFIG_NAMESPACES += aosp_vs_qva
