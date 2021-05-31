@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-CAFEX_VERSION = v1.0
+CAFEX_VERSION = v2.0
 
 CAFEX_BUILD_TYPE = OFFICIAL
 
