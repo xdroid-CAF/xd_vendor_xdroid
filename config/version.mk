@@ -21,12 +21,15 @@ ifndef XDROID_BUILD_TYPE
    XDROID_BUILD_TYPE := ALPHA
 endif
 
-XDROID_VERSION := rev1.6
+XDROID_VERSION := rev1.0
+XDROID_CODENAME := Redstone
+
 XDROID_BUILD_VERSION := xdroid-$(XDROID_VERSION)-$(XDROID_BUILD)-$(XDROID_HOST_TIME)-$(XDROID_BUILD_TYPE)
 XDROID_BUILD_NUMBER := xd_$(XDROID_VERSION).$(XDROID_HOST_TIME)
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
    ro.xdroid.version=$(XDROID_VERSION) \
+   ro.xdroid.codename=$(XDROID_CODENAME) \
    ro.xdroid.build.version=$(XDROID_BUILD_VERSION) \
    ro.xdroid.build.number=$(XDROID_BUILD_NUMBER) \
    ro.xdroid.build.type=$(XDROID_BUILD_TYPE) \
