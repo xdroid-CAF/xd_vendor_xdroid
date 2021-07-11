@@ -116,6 +116,12 @@
         <permission name="android.permission.REQUEST_NOTIFICATION_ASSISTANT_SERVICE" />
     </privapp-permissions>
 
+    <privapp-permissions package="com.android.wallpaper">
+        <permission name="android.permission.SET_WALLPAPER_COMPONENT"/>
+        <permission name="android.permission.WRITE_SECURE_SETTINGS"/>.
+        <permission name="android.permission.CHANGE_OVERLAY_PACKAGES"/>
+    </privapp-permissions>
+
     <privapp-permissions package="com.android.connectivity.metrics">
         <permission name="android.permission.DUMP"/>
         <permission name="android.permission.MODIFY_PHONE_STATE"/>.
