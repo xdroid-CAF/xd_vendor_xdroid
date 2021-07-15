@@ -16,6 +16,9 @@
 #
 
 XDROID_HOST_TIME := $(shell date +"%Y%m%d-%H%M")
+XDROID_BUILD_DATE := $(shell date -u +%Y%m%d)
+XDROID_BUILD_TIME := $(shell date -u +%H%M)
+XDROID_BUILD_DATE_TIME := $(XDROID_BUILD_TIME)$(XDROID_BUILD_DATE)
 
 ifndef XDROID_BUILD_TYPE
    XDROID_BUILD_TYPE := ALPHA
@@ -35,4 +38,5 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
    ro.xdroid.build.version=$(XDROID_BUILD_VERSION) \
    ro.xdroid.build.number=$(XDROID_BUILD_NUMBER) \
    ro.xdroid.build.type=$(XDROID_BUILD_TYPE) \
+   ro.build.datetime=$(XDROID_BUILD_DATE_TIME) \
    ro.caf.revision.tag=$(CAF_REVISION_TAG)
