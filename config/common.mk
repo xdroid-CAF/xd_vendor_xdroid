@@ -15,6 +15,22 @@
 # limitations under the License.
 #
 
+# xd. version
+include vendor/xdroid/config/xd_version.mk
+
+# xd. packages
+include vendor/xdroid/config/xd_packages.mk
+
+# xd. props
+include vendor/xdroid/config/xd_props.mk
+
+# xd. xdroidUI
+include vendor/xdroidui/config.mk
+
+# xd. gapps
+include vendor/google/gms/config.mk
+include vendor/google/pixel/config.mk
+
 # ART
 # Optimize everything for preopt
 PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := everything
@@ -113,22 +129,3 @@ endif
 
 # Include AOSP audio files
 include vendor/xdroid/config/aosp_audio.mk
-
-# Include xdroid audio files
-include vendor/xdroid/config/xdroid_audio.mk
-
-# Include xdroidUI
-include vendor/xdroidui/config.mk
-
-# Include xdroid packages
-include vendor/xdroid/config/packages.mk
-
-# Include xdroid gapps
-include vendor/google/gms/config.mk
-include vendor/google/pixel/config.mk
-
-# Include common props
-include vendor/xdroid/config/props.mk
-
-# Include Version
-include vendor/xdroid/config/version.mk
