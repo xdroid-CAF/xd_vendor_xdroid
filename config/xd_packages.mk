@@ -2,6 +2,10 @@
 # Copyright (C) The ConquerOS Project
 #
 
+# OTA
+PRODUCT_PACKAGES += \
+    Updater
+
 # Telephony packages
 PRODUCT_PACKAGES += \
     Stk
