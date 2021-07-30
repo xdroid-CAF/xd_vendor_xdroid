@@ -24,6 +24,11 @@ include vendor/xdroid/config/xd_packages.mk
 # xd. props
 include vendor/xdroid/config/xd_props.mk
 
+# xd. permissions
+PRODUCT_COPY_FILES += \
+    vendor/xdroid/config/permissions/xd_permissions.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/xd_permissions_system.xml \
+    vendor/xdroid/config/permissions/xd_permissions.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/xd_permissions_system-ext.xml
+
 # xd. xdroidUI
 include vendor/xdroidui/config.mk
 
@@ -94,11 +99,6 @@ PRODUCT_COPY_FILES += \
 # Use default filter for problematic apps.
 PRODUCT_DEXPREOPT_QUICKEN_APPS += \
     Dialer
-
-# xdroid Gapps Permissions
-PRODUCT_COPY_FILES += \
-    vendor/xdroid/config/permissions/xd.xdroid_gapps.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/xd.xdroid_gapps.xml \
-	vendor/xdroid/config/permissions/xd.xdroid_gapps.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/xd.xdroid_gapps.xml
 
 # Do not preoptimize prebuilts when building GApps
 DONT_DEXPREOPT_PREBUILTS := true
