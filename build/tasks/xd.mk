@@ -20,10 +20,10 @@ MD5 := prebuilts/build-tools/path/$(HOST_OS)-x86/md5sum
 xd: $(INTERNAL_OTA_PACKAGE_TARGET)
 	$(hide) mv $(INTERNAL_OTA_PACKAGE_TARGET) $(XDROID_TARGET_PACKAGE)
 	$(hide) $(MD5) $(XDROID_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(XDROID_TARGET_PACKAGE).md5sum
+	$(hide) ./vendor/xdroid/tools/generate_json_build_info.sh $(XDROID_TARGET_PACKAGE)
 	@echo "Done"
-	@echo -e "\t ===============================-Package complete-============================================================="
+	@echo -e "\t ===============================-Package complete-========================================="
 	@echo -e "\t Zip: $(XDROID_TARGET_PACKAGE)"
-	@echo -e "\t MD5: `cat $(XDROID_TARGET_PACKAGE).md5sum | awk '{print $$1}' `"
 	@echo -e "\t Size: `du -sh $(XDROID_TARGET_PACKAGE) | awk '{print $$1}' `"
-	@echo -e "\t xdroidXI - Keept Minimalistm"
-	@echo -e "\t =============================================================================================================="
+	@echo -e "\t xdroid | #minimalistEra"
+	@echo -e "\t =========================================================================================="
