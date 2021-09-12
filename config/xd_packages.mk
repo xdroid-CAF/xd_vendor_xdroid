@@ -20,6 +20,10 @@ PRODUCT_PACKAGES += \
 endif
 endif
 
+# SoftAP
+PRODUCT_PACKAGES += \
+    SoftAPManager
+
 # SystemUI plugins
 PRODUCT_PACKAGES += \
     QuickAccessWallet
