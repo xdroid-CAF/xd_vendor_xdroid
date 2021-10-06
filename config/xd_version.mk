@@ -1,3 +1,4 @@
+
 #
 # Copyright (C) 2020 The ConquerOS Project
 #				2021 a xdroid Prjkt
@@ -24,7 +25,7 @@ ifndef XDROID_BUILD_TYPE
    XDROID_BUILD_TYPE := STBL
 endif
 
-XDROID_VERSION := rev1.6
+XDROID_VERSION := rev1.6.5
 XDROID_CODENAME := redwhite
 XDROID_REVISION := xd_$(XDROID_VERSION).$(XDROID_CODENAME).$(XDROID_BUILD_TYPE)
 
