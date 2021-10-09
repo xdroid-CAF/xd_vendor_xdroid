@@ -1,5 +1,6 @@
+ifeq ($(WITH_GAPPS),true)
 # Gapps
-IS_PHONE := true
+$(call inherit-product, vendor/gms/gms_full.mk)
 
 # Common Overlay
 DEVICE_PACKAGE_OVERLAYS += \
@@ -8,5 +9,7 @@ DEVICE_PACKAGE_OVERLAYS += \
 # Exclude RRO Enforcement
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS +=  \
     vendor/extended/overlay-gapps
-    
+
 $(call inherit-product, vendor/extended/config/rro_overlays.mk)
+
+endif

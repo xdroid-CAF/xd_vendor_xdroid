@@ -122,16 +122,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml
 endif
 
-# GMS
-ifeq ($(WITH_GAPPS), true)
-
 # Inherit GMS, Pixel Features, and Modules.
-$(call inherit-product, vendor/gapps/config.mk)
 $(call inherit-product,vendor/extended/config/gapps.mk)
-# Don't preoptimize prebuilts when building GMS.
-DONT_DEXPREOPT_PREBUILTS := true
 
-endif
+
 
 # HIDL
 PRODUCT_PACKAGES += \
