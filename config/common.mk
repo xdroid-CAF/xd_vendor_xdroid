@@ -41,7 +41,12 @@ endif
 #PRODUCT_PACKAGES += \
 #    SimpleDeviceConfig
 
-# AOSP Packages
+
+# Enable one-handed mode
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.support_one_handed_mode=true
+
+#Theme Picker
 PRODUCT_PACKAGES += \
     ThemePicker
 
