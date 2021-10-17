@@ -28,18 +28,18 @@ PRODUCT_COPY_FILES += \
 endif
 
 # Cutout control overlays
-PRODUCT_PACKAGES += \
-    HideCutout \
-    StatusBarStock
+#PRODUCT_PACKAGES += \
+#    HideCutout \
+#    StatusBarStock
 
 # StichImage
-PRODUCT_PACKAGES += \
-    StitchImage \
-    StitchImageService
+#PRODUCT_PACKAGES += \
+#    StitchImage \
+#    StitchImageService
 
 #SimpleDeviceConfig
-PRODUCT_PACKAGES += \
-    SimpleDeviceConfig
+#PRODUCT_PACKAGES += \
+#    SimpleDeviceConfig
 
 # AOSP Packages
 PRODUCT_PACKAGES += \
@@ -128,6 +128,13 @@ DONT_DEXPREOPT_PREBUILTS := true
 
 endif
 
+# HIDL
+PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.manager@1.0 \
+    android.hidl.base@1.0.vendor \
+    android.hidl.manager@1.0.vendor
+
 -include vendor/qcom/defs/board-defs/system/*.mk
 -include vendor/qcom/defs/board-defs/vendor/*.mk
 $(call inherit-product-if-exists, vendor/qcom/defs/product-defs/system/*.mk)
@@ -160,3 +167,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 SOONG_CONFIG_NAMESPACES += aosp_vs_qva
 SOONG_CONFIG_aosp_vs_qva += aosp_or_qva
 SOONG_CONFIG_aosp_vs_qva_aosp_or_qva := qva
+
+# Skip boot JAR checks.
+SKIP_BOOT_JARS_CHECK := true
