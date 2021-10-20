@@ -70,8 +70,7 @@ PRODUCT_PACKAGES += \
     SyncProvider \
     SoundRecorder \
     DuckDuckGo \
-    MusicPlayerGO \
-    WallpaperPickerGoogle
+    MusicPlayerGO
 
 # Extra tools
 PRODUCT_PACKAGES += \
