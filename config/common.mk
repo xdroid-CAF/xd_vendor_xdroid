@@ -123,7 +123,8 @@ endif
 # Inherit GMS, Pixel Features, and Modules.
 $(call inherit-product,vendor/extended/config/gapps.mk)
 
-
+#Gapps
+WITH_GAPPS := true
 
 # HIDL
 PRODUCT_PACKAGES += \
