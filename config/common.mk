@@ -69,7 +69,6 @@ PRODUCT_PACKAGES += \
     CalendarProvider \
     SyncProvider \
     SoundRecorder \
-    DuckDuckGo \
     MusicPlayerGO
 
 # Extra tools
