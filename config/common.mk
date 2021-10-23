@@ -38,8 +38,8 @@ endif
 #    StitchImageService
 
 #SimpleDeviceConfig
-#PRODUCT_PACKAGES += \
-#    SimpleDeviceConfig
+PRODUCT_PACKAGES += \
+    SimpleDeviceConfig
 
 
 # Enable one-handed mode
@@ -98,7 +98,31 @@ PRODUCT_PACKAGES += \
     vim \
     rsync \
     zip
-	
+
+# TextClassifier
+PRODUCT_PACKAGES += \
+	libtextclassifier_annotator_en_model \
+	libtextclassifier_annotator_universal_model \
+	libtextclassifier_actions_suggestions_universal_model \
+	libtextclassifier_lang_id_model
+
+# Use gestures by default
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.boot.vendor.overlay.theme=com.android.internal.systemui.navbar.gestural
+
+# IORap app launch prefetching using Perfetto traces and madvise
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.iorapd.enable=true
+
+# Pixel customization
+TARGET_SUPPORTS_GOOGLE_RECORDER ?= true
+TARGET_INCLUDE_STOCK_ARCORE ?= true
+TARGET_INCLUDE_LIVE_WALLPAPERS ?= true
+TARGET_SUPPORTS_QUICK_TAP ?= false
+ifeq ($(TARGET_INCLUDE_LIVE_WALLPAPERS),true)
+PRODUCT_PACKAGES += \
+    PixelLiveWallpapersOverlay
+endif	
 
 # Charger mode images
 PRODUCT_PACKAGES += \

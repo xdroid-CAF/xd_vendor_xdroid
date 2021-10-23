@@ -1,16 +1,27 @@
-# Google Overlays
+# RRO Overlays
 PRODUCT_PACKAGES += \
-    CaptivePortalLoginOverlay \
-    CellBroadcastServiceOverlay \
-    GoogleConfigOverlay \
+    FilesOverlay \
+    PixelDocumentsUIGoogleOverlay \
+    BuiltInPrintServiceOverlay \
     GooglePermissionControllerOverlay \
+    PixelConfigOverlayCommon \
+    TeleServiceOverlay \
+    CaptivePortalLoginOverlay \
     GoogleWebViewOverlay \
-    ManagedProvisioningPixelOverlay \
-    ManagedProvisioningPixelOverlay \
+    SettingsGoogleOverlay \
+    TelecomOverlay \
+    CellBroadcastServiceOverlay \
+    SettingsGoogleOverlayPixel2019_midyear \
+    TelephonyProviderOverlay \
+    ContactsProviderOverlay \
     PixelConfigOverlay2018 \
+    SettingsProviderOverlay \
+    TraceurOverlay \
     PixelConfigOverlay2019 \
     PixelConfigOverlay2019Midyear \
-    PixelConfigOverlayCommon \
-    PixelSetupWizardOverlayAosp \
-    PixelTetheringOverlay \
-    SettingsGoogleOverlayAosp
+    PixelSetupWizardOverlay \
+    PixelSetupWizardOverlay2019 \
+    PixelSetupWizardOverlayActiveEdge \
+    PixelFwResOverlay \
+    GoogleConfigOverlay \
+    SystemUIGoogleOverlay
