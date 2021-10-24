@@ -32,9 +32,11 @@ PRODUCT_COPY_FILES += \
 # xd. xdroidUI
 include vendor/xdroidui/config.mk
 
-# xd. gapps
+# xd. GMS
+ifeq ($(XD_GMS), true)
+$(warning "xdroid: Google GMS was included")
 include vendor/google/gms/config.mk
-include vendor/google/pixel/config.mk
+endif
 
 # ART
 # Optimize everything for preopt
