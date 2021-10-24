@@ -4,7 +4,6 @@ export CAF_REVISION_TAG=$(grep "default  revision" ".repo/manifests/default.xml"
 echo -e ==========================================
 echo 	 xd. xdroidOS Build Environtment
 echo -e ==========================================
-echo -e "xd. Revision: rev1.7.redwhite"
 echo -e "CAF Revision: $CAF_REVISION_TAG"
 
 # SDClang Environment Variables
