@@ -1,4 +1,4 @@
-# Copyright (C) 2017 AospExtended
+# Copyright (C) 2017 Aospxdroid
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,11 +13,11 @@
 # limitations under the License.
 
 # Inherit common AOSP stuff
-$(call inherit-product, vendor/extended/config/common.mk)
+$(call inherit-product, vendor/xdroid/config/common.mk)
 
-$(call inherit-product, vendor/extended/config/telephony.mk)
+$(call inherit-product, vendor/xdroid/config/telephony.mk)
 
-$(call inherit-product, vendor/extended/config/cafex_props.mk)
+$(call inherit-product, vendor/xdroid/config/cafex_props.mk)
 
 # Overlays
 $(call inherit-product, vendor/overlay/overlays.mk)

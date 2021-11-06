@@ -12,39 +12,28 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-CAFEX_RELEASE_VERSION = v3.0
+XDROID_HOST_TIME := $(shell date +"%Y%m%d-%H%M")
+XDROID_BUILD_DATE := $(shell date -u +%Y%m%d)
+XDROID_BUILD_TIME := $(shell date -u +%H%M)
+XDROID_BUILD_DATE_TIME := $(XDROID_BUILD_TIME)$(XDROID_BUILD_DATE)
 
-CAFEX_BUILD_TYPE ?= UNOFFICIAL
-CAFEX_BUILD_VARIANT ?=  VANILLA
-
-TARGET_PRODUCT_SHORT := $(subst cafex_,,$(CAFEX_BUILD))
-
-ifeq ($(CAFEX_OFFICIAL), true)
-CAFEX_BUILD_TYPE := OFFICIAL
+ifndef XDROID_BUILD_TYPE
+   XDROID_BUILD_TYPE := DVLPMNT
 endif
 
-ifeq ($(WITH_GAPPS), true)
-CAFEX_BUILD_VARIANT := GAPPS
-endif
+XDROID_VERSION := rev2.0
+XDROID_CODENAME := mnmlistyou
+XDROID_REVISION := xd_$(XDROID_VERSION).$(XDROID_CODENAME).$(XDROID_BUILD_TYPE)
 
-CAFEX_DATE_YEAR := $(shell date +%Y)
-CAFEX_DATE_MONTH := $(shell date +%m)
-CAFEX_DATE_DAY := $(shell date +%d)
-CAFEX_DATE_HOUR := $(shell date +%H)
-CAFEX_DATE_MINUTE := $(shell date +%M)
-#CAFEX_BUILD_DATE_UTC := $(shell date -d '$(CAFEX_DATE_YEAR)-$(CAFEX_DATE_MONTH)-$(CAFEX_DATE_DAY) $(CAFEX_DATE_HOUR):$(CAFEX_DATE_MINUTE) UTC' +%s)
-CAFEX_BUILD_DATE := $(CAFEX_DATE_YEAR)$(CAFEX_DATE_MONTH)$(CAFEX_DATE_DAY)-$(CAFEX_DATE_HOUR)$(CAFEX_DATE_MINUTE)
-CAFEX_MOD_VERSION := CAFExtended-$(CAFEX_RELEASE_VERSION)-$(CAFEX_BUILD_DATE)-$(CAFEX_BUILD_TYPE)
-CAFEX_FINGERPRINT := CAFExtended/$(CAFEX_RELEASE_VERSION)/$(PLATFORM_VERSION)/$(TARGET_PRODUCT_SHORT)/$(CAFEX_BUILD_DATE)
-
-
-CAFEX_VERSION := CAFExtended-$(CAFEX_RELEASE_VERSION)-$(CAFEX_BUILD_DATE)
-CAFEX_DISPLAY_VERSION := CAFExtended-$(CAFEX_RELEASE_VERSION)-$(CAFEX_BUILD_TYPE)
-
+XDROID_BUILD_VERSION := $(XDROID_REVISION)-$(XDROID_BUILD)-$(XDROID_HOST_TIME)
+XDROID_BUILD_NUMBER := $(XDROID_VERSION).$(XDROID_HOST_TIME)
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-  ro.cafex.display.version=$(CAFEX_DISPLAY_VERSION) \
-  ro.cafex.fingerprint=$(CAFEX_FINGERPRINT) \
-  ro.cafex.build.variant=$(CAFEX_BUILD_VARIANT) \
-  ro.cafex.build_date_utc=$(CAFEX_BUILD_DATE_UTC)
-
+   ro.xdroid.version=$(XDROID_VERSION) \
+   ro.xdroid.codename=$(XDROID_CODENAME) \
+   ro.xdroid.revision=$(XDROID_REVISION) \
+   ro.xdroid.build.version=$(XDROID_BUILD_VERSION) \
+   ro.xdroid.build.number=$(XDROID_BUILD_NUMBER) \
+   ro.xdroid.build.type=$(XDROID_BUILD_TYPE) \
+   ro.build.datetime=$(XDROID_BUILD_DATE_TIME) \
+   ro.caf.revision.tag=$(CAF_REVISION_TAG)

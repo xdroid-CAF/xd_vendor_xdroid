@@ -1,1 +1,1 @@
-SDCLANG_LTO_DEFS := vendor/extended/sdclang/sdllvm-lto-defs.mk
+SDCLANG_LTO_DEFS := vendor/xdroid/sdclang/sdllvm-lto-defs.mk

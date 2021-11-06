@@ -1,5 +1,5 @@
 # Bring in Qualcomm helper macros
-include vendor/extended/build/core/qcom_utils.mk
+include vendor/xdroid/build/core/qcom_utils.mk
 
 # Set device-specific HALs into project pathmap
 define set-device-specific-path

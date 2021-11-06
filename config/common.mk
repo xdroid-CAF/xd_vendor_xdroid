@@ -1,4 +1,4 @@
-# Copyright (C) 2017 AospExtended
+# Copyright (C) 2017 Aospxdroid
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,19 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include vendor/extended/config/version.mk
+include vendor/xdroid/config/version.mk
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/extended/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/extended/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/extended/prebuilt/common/bin/50-base.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-base.sh
+    vendor/xdroid/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/xdroid/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/xdroid/prebuilt/common/bin/50-base.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-base.sh
 
 ifneq ($(AB_OTA_PARTITIONS),)
 PRODUCT_COPY_FILES += \
-    vendor/extended/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
-    vendor/extended/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
-    vendor/extended/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
+    vendor/xdroid/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
+    vendor/xdroid/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
+    vendor/xdroid/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
 endif
 
 # Cutout control overlays
@@ -145,7 +145,7 @@ PRODUCT_COPY_FILES += \
 endif
 
 # Inherit GMS, Pixel Features, and Modules.
-$(call inherit-product,vendor/extended/config/gapps.mk)
+$(call inherit-product,vendor/xdroid/config/gapps.mk)
 
 #Gapps
 WITH_GAPPS := true
