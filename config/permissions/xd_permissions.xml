@@ -1235,4 +1235,9 @@
     <privapp-permissions package="com.google.android.GoogleCameraNext">
         <permission name="android.permission.BIND_WALLPAPER" />
     </privapp-permissions>
+	
+    <privapp-permissions package="com.android.settings">
+        <permission name="android.permission.RESET_BATTERY_STATS"/>
+    </privapp-permissions>
+	
 </permissions>
